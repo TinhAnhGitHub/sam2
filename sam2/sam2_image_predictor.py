@@ -120,8 +120,9 @@ class SAM2ImagePredictor:
 
         ## DEBUG
         print(
-            [feat.shape, feat_size for feat, feat_size in zip(vision_feats[::-1], self._bb_feat_sizes[::-1])]
+            [(feat.shape, feat_size) for feat, feat_size in zip(vision_feats[::-1], self._bb_feat_sizes[::-1])]
         )
+
 
         # Add no_mem_embed, which is added to the lowest rest feat. map during training on videos
         if self.model.directly_add_no_mem_embed:
